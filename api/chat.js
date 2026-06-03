@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       `請針對使用者最新這句「${message}」輸出 JSON。`;
 
     const genRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -77,11 +77,11 @@ export default async function handler(req, res) {
 // 取得一句話的語意向量
 async function embed(text, key) {
   const r = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${key}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=${key}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ model: "models/text-embedding-004", content: { parts: [{ text }] } }),
+      body: JSON.stringify({ model: "models/gemini-embedding-001", content: { parts: [{ text }] } }),
     }
   );
   const d = await r.json();
