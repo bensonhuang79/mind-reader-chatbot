@@ -1,0 +1,9 @@
+{
+  "name": "mind-reader-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI 讀心聊天機器人：預判使用者下一句並計算語意相似度",
+  "engines": {
+    "node": ">=18"
+  }
+}
